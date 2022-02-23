@@ -1,0 +1,9 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    {{ form_start(form) }}
+        {{ form(form)}}
+    {{ form_end(form) }}
+   <a class="btn btn-danger" href="/post/">
+         Cancel
+   </a>
+{% endblock %}

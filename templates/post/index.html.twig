@@ -1,0 +1,38 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+    <h2>Daftar postingan</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td>id</td>
+                <td>title</td>
+                <td>actions</td>
+            </tr>
+        </thead>
+        <tbody>
+        {% for post in posts %}
+            <tr>
+                <td> {{ post.id }} </td>
+                <td>
+                    <a href="/post/show/{{ post.id }}">
+                        {{ post.title }}
+                    </a>
+                 </td>
+                 <td>
+                    <a class="btn btn-danger" href="/post/delete/{{ post.id }}">
+                        delete
+                    </a>
+                    <a class="btn btn-primary" href="/post/edit/{{ post.id }}">
+                        edit
+                    </a>
+                 </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
